@@ -1,0 +1,11 @@
+{
+  "Server": {
+    "host": "HOST",
+    "port": "PORT"
+  },
+  "IdToken" : {
+    "issuer": "ID_TOKEN_ISSUER",
+    "privateKey": "ID_TOKEN_PRIVATE_KEY",
+    "publicKey": "ID_TOKEN_PUBLIC_KEY"
+  }
+}

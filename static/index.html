@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Code Reality Example</title>
+    <meta name="description" content="Code Reality Test">
+
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@cb4de2e19d577e9b5c34f01efe1c1d96c1d1c2e0/dist/aframe-master.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@b20527f/dist/aframe-master.min.js"></script>-->
+
+    <script src="https://unpkg.com/@tlaukkan/aframe-tiny-terrain-component@0.0.5/dist/terrain.js"></script>
+    <script src="https://unpkg.com/@tlaukkan/aframe-three-color-gradient-shader@0.0.1/index.js"></script>
+
+    <script src="index.js"></script>
+</head>
+<body>
+
+<a-scene light="defaultLightsEnabled: false" stats space="https://cdn.jsdelivr.net/gh/tlaukkan/aframe-dataspace@0.0.18/defaul-configuration.json">
+
+    <!-- Assets -->
+    <a-assets>
+        <a-asset-item id="tree" src="https://cdn.rawgit.com/bubblecloud/assets/1c1313f0/bitgem/birch_tree/scene.gltf"></a-asset-item>
+        <a-asset-item id="robot" src="https://cdn.jsdelivr.net/gh/tlaukkan/aframe-asset-collection/avatars/RobotExpressive.glb"></a-asset-item>
+    </a-assets>
+
+    <!-- Lights -->
+    <a-entity light="type: ambient; color: #FFFFFF; intensity: 0.4"></a-entity>
+    <a-entity light="type: directional; color: #FFFFFF; intensity: 0.5" position="0.1 0.6 -0.3"></a-entity>
+
+    <!-- Sky -->
+    <a-sky geometry="primitive: sphere" material="shader: threeColorGradientShader; topColor: #F5BB00; middleColor: #EC9F05; bottomColor: #D76A03;"></a-sky>
+
+    <!-- Terrain -->
+    <a-tiny-terrain id="terrain" collidable position="0 -20 0" height-function="custom" radius-edge-count="25" edge-length = "1.5" palette = "#8EA604" palette-accuracy="3" palette-range-min="0" palette-range-max="20" ></a-tiny-terrain>
+
+    <!-- Scene objects -->
+    <a-box color="#BF3100" collidable position="0 -0.75 -3" scale="2 2 2" ></a-box>
+    <a-box color="#2364AA" collidable position="0 -0.5 -5" scale="2 2 2" ></a-box>
+    <a-box color="#8EA604" collidable position="0 -0.25 -7" scale="2 2 2" ></a-box>
+    <a-box color="#8EA604" collidable position="0 0.5 -10" scale="4 0.5 4" ></a-box>
+    <a-entity gltf-model="#tree" collidable position="-1 1 -10" scale="0.01 0.01 0.01"></a-entity>
+    <a-entity gltf-model="#robot" collidable position="1 1 -10" scale="0.3 0.3 0.3" avatar></a-entity>
+    <a-sphere position="2 0 -3" collidable scale="1 1 1" color="#FFFFFF" identity example></a-sphere>
+
+    <!-- Interface -->
+    <a-entity id="doh" interface position="0 0 0">
+        <a-entity camera look-controls="pointerLockEnabled: true;" position="0 1.6 0">
+            <a-entity keyboard-and-mouse position="0.25 -0.25 -0.75"></a-entity>
+        </a-entity>
+
+        <a-entity vive-controller="hand: left" vive-controls="hand: left"></a-entity>
+        <a-entity vive-controller="hand: right" vive-controls="hand: right"></a-entity>
+
+        <a-entity movement-tool="minY: -20;"></a-entity>
+        <a-entity entity-tool></a-entity>
+
+    </a-entity>
+
+</a-scene>
+
+</body>
+</html>
