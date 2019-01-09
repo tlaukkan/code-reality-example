@@ -2,7 +2,7 @@
 
 This is work in progress...
 
-This is example project for creating networked building networked extended reality (XR) experiences with Code Reality framework and A-Frame framework.
+This is example project for creating networked extended reality (XR) experiences with Code Reality framework and A-Frame framework.
 
 In addition you will need aframe-database infrastructure servers for scene
 synchronization and persistence.
