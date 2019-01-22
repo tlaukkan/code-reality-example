@@ -1,8 +1,8 @@
 import {
+    AddObjectTool,
     AnimatorController,
     AvatarController,
     CollidableController,
-    EntityTool,
     ExampleController,
     ExampleSystemController,
     IdentityController,
@@ -10,25 +10,29 @@ import {
     InterfaceSystemController,
     KeyboardAndMouseDevice,
     LabelController, MovementState,
-    MovementTool,
+    PrimaryControllerDevice,
     QuaternionController,
     registerComponentController, registerStateFactory,
     registerSystemController,
     SpaceSystemController, States,
-    StateSystemController,
-    ViveControllerDevice
+    StateSystemController, TeleportTool,
+    WalkTool
 } from "code-reality";
+import {ToolSelectorTool} from "code-reality/lib/src/browser/system/interface/tool/ToolSelectorTool";
 
 registerSystemController(ExampleSystemController.DEFINITION);
 registerSystemController(InterfaceSystemController.DEFINITION);
 registerSystemController(StateSystemController.DEFINITION);
+registerSystemController(SpaceSystemController.DEFINITION);
 
 registerComponentController(InterfaceController.DEFINITION);
+registerComponentController(ToolSelectorTool.DEFINITION);
 
-registerComponentController(EntityTool.DEFINITION);
-registerComponentController(MovementTool.DEFINITION);
+registerComponentController(AddObjectTool.DEFINITION);
+registerComponentController(WalkTool.DEFINITION);
+registerComponentController(TeleportTool.DEFINITION);
 
-registerComponentController(ViveControllerDevice.DEFINITION);
+registerComponentController(PrimaryControllerDevice.DEFINITION);
 registerComponentController(KeyboardAndMouseDevice.DEFINITION);
 
 registerComponentController(ExampleController.DEFINITION);
